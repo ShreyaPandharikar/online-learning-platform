@@ -54,7 +54,8 @@ function renderNotifications() {
 }
 
 // Real Login Function
-async function loginUser() {
+async function loginUser(e) {
+  e.preventDefault();
   const email = document.getElementById("loginEmail").value;
   const pass = document.getElementById("loginPass").value;
   const error = document.getElementById("loginError");
@@ -66,57 +67,56 @@ async function loginUser() {
   }
 
   try {
-    const res = await fetch(`${API_BASE}/auth/login`, {
+    const res = await fetch("https://learning-horizon-backend.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password: pass })
     });
 
     const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.message || "Login failed");
+    if (res.ok) {
+      alert("Login successful!");
+      localStorage.setItem("token", data.token);
+      window.location.href = "courses.html";
+    } else {
+      error.style.display = "block";
+      error.textContent = data.message || "Login failed";
     }
-
-    alert("Login successful!");
-    localStorage.setItem("token", data.token);
-    window.location.href = "courses.html";
   } catch (err) {
-    error.style.display = "block";
-    error.textContent = err.message;
+    console.error(err);
+    alert("Server error. Try again later.");
   }
 }
 
+
 // Real Signup Function
-async function signupUser() {
+async function signupUser(e) {
+  e.preventDefault();
   const email = document.getElementById("signupEmail").value;
   const pass = document.getElementById("signupPass").value;
-  const error = document.getElementById("signupError");
 
   if (!email || !pass) {
-    error.style.display = "block";
-    error.textContent = "Please fill in all fields.";
+    alert("Please fill in all fields.");
     return;
   }
 
   try {
-    const res = await fetch(`${API_BASE}/auth/signup`, {
+    const res = await fetch("https://learning-horizon-backend.onrender.com/api/auth/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password: pass })
     });
 
     const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.message || "Signup failed");
+    if (res.ok) {
+      alert("Signup successful! Please login now.");
+      window.location.href = "auth.html";
+    } else {
+      alert(data.message || "Signup failed");
     }
-
-    alert("Signup successful! You can now log in.");
-    window.location.href = "auth.html";
   } catch (err) {
-    error.style.display = "block";
-    error.textContent = err.message;
+    console.error(err);
+    alert("Server error. Try again later.");
   }
 }
 
