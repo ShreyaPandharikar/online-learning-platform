@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Learning Horizon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00bcd4;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    .contact-section {
+      flex: 1;
+      padding: 3rem 1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-section h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background-color: #1f1f1f;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    input, textarea {
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      outline: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: #121212;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+
+    .contact-footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1e1e1e;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .social-icons {
+      margin-top: 0.8rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #888;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00bcd4;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Learning Horizon</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="auth.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-section">
+    <h1>Get in Touch</h1>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="email" placeholder="Your Email Address" required />
+      <textarea placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="contact-footer">
+    <p>📍 Pune, Maharashtra | ✉️ support@learninghorizon.com</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p style="margin-top: 0.8rem;">© 2025 Learning Horizon. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Thanks! Your message has been submitted.");
+    }
+  </script>
+
+</body>
+</html>

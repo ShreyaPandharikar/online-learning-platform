@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | Learning Horizon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #5ee6eb;
+    }
+
+    nav a {
+      color: #ccc;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #5ee6eb;
+    }
+
+    .login-btn {
+      background: #5ee6eb;
+      color: #000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #26c6da;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      margin: 0 0.2rem;
+    }
+
+   .highlight {
+      color: #fff;
+   }
+
+   .dot {
+      color: #5ee6eb;
+      font-weight: bold;
+      padding: 0 0.2rem;
+   }
+
+   .typing-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #5ee6eb;
+    width: 0;
+    animation: typing 3s steps(18) forwards, blink 0.7s step-end infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18ch;
+  }
+}
+
+/* Cursor blinking */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+  .typewriter-loop {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #5ee6eb;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #5ee6eb;
+    width: 0;
+    animation:
+     typing 4s steps(18, end) 1s infinite alternate,
+     blink 0.5s step-end infinite;
+}
+
+/* Typing & Erasing */
+  @keyframes typing {
+   0% {
+    width: 0;
+    }
+    100% {
+    width: 18ch;
+    }
+  }
+
+/* Cursor blink */
+  @keyframes blink {
+    50% {
+    border-color: transparent;
+  }
+}
+
+
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #bbb;
+    }
+
+    .hero .buttons {
+      margin-top: 2rem;
+    }
+
+    .hero .buttons a {
+      margin: 0.5rem;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .view-btn {
+      background-color: #5ee6eb;
+      color: #000;
+    }
+
+    .watch-btn {
+      border: 2px solid #5ee6eb;
+      color: #5ee6eb;
+    }
+
+    .watch-btn:hover {
+      background: #5ee6eb;
+      color: #000;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #2e2e2e;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #5ee6eb;
+    }
+
+    .card h3 {
+      color: #5ee6eb;
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .left-lottie dotlottie-player {
+      width: 100px !important;
+      height: 100px !important;
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+    <!-- Lottie Animation Left -->
+    <div class="left-lottie">
+      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+      <dotlottie-player src="https://lottie.host/c2c788bb-4ece-4ea8-be1a-98bc4e48a15f/65Dw35wQTJ.lottie"
+        background="transparent" speed="1" style="width: 60px; height: 60px" loop autoplay></dotlottie-player>
+    </div>
+
+    <div class="logo">Learning Horizon</div>
+    
+    <nav>
+      <a href="index.html" class="Home">Home</a>
+      <a href="courses.html" class="Courses">Courses</a>
+      <a href="explore.html">Explore</a>
+      <a href="contact.html">Contact</a>
+      <a href="articles.html">Articles</a>
+      <a href="auth.html" class="login-btn">Login</a>
+      
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="typewriter-loop">Code. Learn. Succeed.</h1>
+
+
+    <p>Your personalized platform for interactive learning & growth.</p>
+    <div class="buttons">
+      <a href="courses.html" class="view-btn">View Courses</a>
+      <a href="#" class="watch-btn">Watch Video <i class="fas fa-play"></i></a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>Dev Challenges</h3>
+      <p>Practice with real-world scenarios to boost problem-solving.</p>
+    </div>
+    <div class="card">
+      <h3>Core Subjects</h3>
+      <p>Master OS, DBMS, CN and other core concepts with curated material.</p>
+    </div>
+    <div class="card">
+      <h3>Mock Tests</h3>
+      <p>Prepare with timed mock tests and topic-wise assessments.</p>
+    </div>
+    <div class="card">
+      <h3>Interview Prep</h3>
+      <p>Get ready with experience-based questions and HR rounds.</p>
+    </div>
+  </section>
+  <footer>
+    © 2025 Learning Horizon. All rights reserved.
+  </footer>
+</body>
+</html>

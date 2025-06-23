@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore | Learning Horizon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    nav {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00bcd4;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    .explore-header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    .explore-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .explore-header p {
+      color: #aaa;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .course-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .course-card h3 {
+      color: #00bcd4;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Learning Horizon</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="explore.html" class="active">Explore</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="auth.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="explore-header">
+    <h1>Explore Courses</h1>
+    <p>Find the perfect skill path for your learning journey.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="course-card">
+      <h3><i class="fas fa-code"></i> Web Development</h3>
+      <p>HTML, CSS, JavaScript, React, and backend technologies to build powerful web apps.</p>
+    </div>
+
+    <div class="course-card">
+      <h3><i class="fas fa-brain"></i> Artificial Intelligence</h3>
+      <p>Learn AI concepts, ML algorithms, and data handling using Python and real-world projects.</p>
+    </div>
+
+    <div class="course-card">
+      <h3><i class="fas fa-cloud"></i> Cloud Computing</h3>
+      <p>Master AWS, Azure, and GCP services to deploy and manage cloud-native apps.</p>
+    </div>
+
+    <div class="course-card">
+      <h3><i class="fas fa-database"></i> Data Science</h3>
+      <p>Get hands-on with data analysis, visualization, and model building using Python libraries.</p>
+    </div>
+
+    <div class="course-card">
+      <h3><i class="fas fa-lock"></i> Cyber Security</h3>
+      <p>Understand ethical hacking, encryption, and secure practices to protect digital systems.</p>
+    </div>
+
+    <div class="course-card">
+      <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
+      <p>Design intuitive and stunning interfaces using Figma, Adobe XD, and design principles.</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Learning Horizon. All rights reserved.
+  </footer>
+
+</body>
+</html>

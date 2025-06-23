@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth | Learning Horizon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .auth-container {
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .auth-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-buttons button {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 8px;
+      margin: 0 5px;
+      font-weight: bold;
+      background-color: #eee;
+      color: #333;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-buttons button.active {
+      background-color: #7e57c2;
+      color: #fff;
+    }
+
+    .auth-form {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .auth-form h2 {
+      text-align: center;
+      margin-bottom: 1.2rem;
+      color: #333;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: #f1f1f1;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    .input-group i {
+      margin-right: 10px;
+      color: #555;
+    }
+
+    .input-group input {
+      border: none;
+      background: transparent;
+      width: 100%;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .options a {
+      color: #7e57c2;
+      text-decoration: none;
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: #7e57c2;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .auth-btn:hover {
+      background: #5e35b1;
+    }
+
+    .google-btn {
+  width: 100%;
+  padding: 0.7rem;
+  background: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.2s ease-in-out;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  background-color: #f7f7f7;
+}
+
+
+    .footer-link {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-link a {
+      color: #7e57c2;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-overlay"></div>
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="toggle-buttons">
+        <button id="loginBtn" class="active" onclick="showForm('login')">Login</button>
+        <button id="signupBtn" onclick="showForm('signup')">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+        <h2>Login</h2>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Enter your password" required />
+        </div>
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="auth-btn">Login Now</button>
+        <div class="footer-link">New here? <a href="#" onclick="showForm('signup')">Create an account</a></div>
+        <div style="text-align: center; margin-top: 1rem;">
+        <p style="color: #666; margin-bottom: 0.5rem;">or</p>
+        <button class="google-btn">
+        <img src="data:image/jpeg;base64,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" alt="G" />
+    Continue with Google
+  </button>
+</div>
+
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+        <h2>Sign Up</h2>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Full Name" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="auth-btn">Register</button>
+        <div class="footer-link">Already have an account? <a href="#" onclick="showForm('login')">Login</a></div>
+         <div style="text-align: center; margin-top: 1rem;">
+         <p style="color: #666; margin-bottom: 0.5rem;">or</p>
+         <button class="google-btn">
+         <img src="data:image/jpeg;base64,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" alt="G" />
+         Continue with Google
+  </button>
+</div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showForm(type) {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const loginBtn = document.getElementById('loginBtn');
+      const signupBtn = document.getElementById('signupBtn');
+
+      if (type === 'login') {
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        loginBtn.classList.add('active');
+        signupBtn.classList.remove('active');
+      } else {
+        loginForm.classList.remove('active');
+        signupForm.classList.add('active');
+        loginBtn.classList.remove('active');
+        signupBtn.classList.add('active');
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      alert('Login Successful!');
+      window.location.href = 'dashboard.html';
+    }
+
+    function handleSignup(e) {
+      e.preventDefault();
+      alert('Sign Up Successful!');
+      window.location.href = 'dashboard.html';
+    }
+
+    function loginUser() {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPass").value;
+
+    fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.token) {
+          alert("Login successful!");
+          // You can store token in localStorage if needed
+          localStorage.setItem("token", data.token);
+          window.location.href = "dashboard.html";
+        } else {
+          alert("Login failed: " + data.message);
+        }
+      })
+      .catch(err => {
+        console.error("Login error:", err);
+        alert("Something went wrong!");
+      });
+  }
+
+  function signupUser() {
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPass").value;
+
+    fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert("Signup successful! Please login.");
+        showForm("login");
+      })
+      .catch(err => {
+        console.error("Signup error:", err);
+        alert("Something went wrong!");
+      });
+  }
+  </script>
+  <footer>
+    © 2025 Learning Horizon. All rights reserved.
+  </footer>
+</body>
+</html>

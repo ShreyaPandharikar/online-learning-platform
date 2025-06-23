@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Learning Horizon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #5ee6eb;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #5ee6eb;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #1b1b1b;
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #5ee6eb;
+      transform: translateY(-5px);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+      color: #5ee6eb;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    .progress-bar {
+      background-color: #333;
+      border-radius: 6px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 12px;
+      background-color: #5ee6eb;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Learning Horizon</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="#">Live</a>
+      <a href="#">Notifications</a>
+      <a href="auth.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Your Dashboard</h1>
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-title">Web Development Bootcamp</div>
+        <div class="card-body">Progress: 70%</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 70%"></div>
+        </div>
+        <div class="stats">
+          <span>14/20 Lessons</span>
+          <span>Next: JS Basics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Python for Beginners</div>
+        <div class="card-body">Progress: 40%</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 40%"></div>
+        </div>
+        <div class="stats">
+          <span>8/20 Lessons</span>
+          <span>Next: Loops</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">DSA Mastery</div>
+        <div class="card-body">Progress: 90%</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 90%"></div>
+        </div>
+        <div class="stats">
+          <span>18/20 Lessons</span>
+          <span>Next: Final Quiz</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    © 2025 Learning Horizon. All rights reserved.
+  </footer>
+</body>
+</html>
